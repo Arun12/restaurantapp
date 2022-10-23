@@ -1,0 +1,22 @@
+<%=render "shared/navbar"%>
+<div class="container-fluid">
+  <div class="row mx-0">
+    <div class="col-4">
+      <div style="height:800px; background-color:white">
+        <%=image_tag(@dish.dish_image)%>
+        <h3 class="text-center">Discription: <%=@dish.description%></h3>
+      </div>
+    </div>
+    <div class="col-8">
+      <div style="height:800px;margin-left:100px; background-color:white">
+        <div class="ps-5 mt-5">
+          <h1><%=@dish.name%></h1>
+          <h3><%=@dish.price%></h3>
+          <%=link_to "Label", new_order_path%>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<%=render "shared/footer"%>

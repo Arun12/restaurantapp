@@ -1,0 +1,22 @@
+<%= render "shared/navbar"%>
+<h1 class="text-center">index page</h1>
+
+
+<div class="row mx-0">
+  <%@dishes.each do |dish|%>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+      <a href="/dishes/<%= dish.id%>" style="text-decoration:none;color:black">
+        <img src="<%= url_for(dish.dish_image)%>" class="card-img-top" alt="..."width="50" height="200">
+        <div class="card-body">
+          <h5 class="card-title"><%=dish.name%></h5>
+          <h5 class="card-title"><%=dish.price%></h5>
+          <p class="card-text"><%=dish.description%></p>    
+        </div>
+      </a>
+      </div>
+    </div>
+  <%end%>
+</div>
+
+<%= render "shared/footer"%>

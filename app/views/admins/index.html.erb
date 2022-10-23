@@ -1,0 +1,22 @@
+<%=render "shared/navbar"%>
+<h1 class="text-center mt-2">admin index page <span><%=current_admin.restaurants.find_by(admin_id: current_admin).name%></span></h1>
+<%=link_to "Add Dish", new_dish_path%>
+<table class="table table-hover"> 
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+  </tbody>
+</table>
+<%=render "shared/footer"%>
