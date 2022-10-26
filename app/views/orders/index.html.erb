@@ -1,10 +1,6 @@
 <%=render "shared/navbar"%>
-<h1 class="text-center mt-2">admin index page <span><%=current_admin.restaurants.find_by(admin_id: current_admin).name%></span></h1>
-<%=link_to "Add Dish", new_dish_path%>
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :name_cont, placeholder:"search by name",class:'search-box-name'%>      
-  <%= f.submit class:'search-button btn btn-primary'%>    
-<% end %>
+<h1 class="text-center">Order index page</h1>
+ 
 <table class="container table table-hover"> 
   <thead>
     <tr class="text-center">
@@ -17,18 +13,18 @@
     </tr>
   </thead>
   <tbody>
-  <% i = 0%>
-  <%@admin_orders.each do |order|%>
+  <%i=0%>
+  <%@orders.each do |order|%>
     <tr class="text-center">
       <td><%=i+1%></td>     
       <td><img src="<%= url_for(@dishes.find(order.dish_id).dish_image)%>" alt="..."width="50" height="50"></td>
       <td><%=order.name%></td>
       <td><%=order.price%></td>
-      <td><%=@users.find(order.user_id).name%></td>
-      <td><%=link_to "view", order%></td>
-  </tr>
-  <% i = i+1%>
+      <td><%=@restaurants.find(order.restaurant_id).name%></td>
+      <td><a href="/orders/<%=order.id%>">view</a></td>
+    </tr>
+    <%i=i+1%>
   <%end%>
   </tbody>
 </table>
-<%=render "shared/footer"%>
+<%= render "shared/footer"%>

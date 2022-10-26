@@ -2,8 +2,13 @@ class RestaurantsController < ApplicationController
    before_action :check_retaurant, only: :index
   
   def index
-    @restaurants = Restaurant.all
-    @dishes = Dish.all
+    @q = Restaurant.ransack(params[:q])
+    if params[:q].present?
+      @restaurants = Restaurant.includes(:dishes).where(dishes: { name: params[:q]['name_cont']})
+    else
+      @restaurants = Restaurant.all
+    end
+    
   end
 
   def show

@@ -1,7 +1,4 @@
 class Order < ApplicationRecord
   belongs_to :user
-
-  def create
-    debugger
-  end
+  has_one_attached :dish_image
 end

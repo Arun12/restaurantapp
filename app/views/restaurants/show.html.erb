@@ -1,1 +1,21 @@
-<h1>dish show</h1>
+<%=render "shared/navbar"%>
+<h1 class="text-center"><%=@restaurant.name%></h1>
+<div class="container mt-3">
+  <div class="row mx-0 mt-5">
+    <%@restaurant.dishes.each do |d|%>
+      <div class="col text-center">
+        <div class="card" style="width: 18rem;">
+        <a href="/dishes/<%=d.id%>" style="text-decoration:none;color:black">
+          <img src="<%= url_for(d.dish_image)%>" class="card-img-top" alt="..."width="50" height="200">
+          <div class="card-body">
+            <h5 class="card-title"><%=d.name%></h5>
+            <h3 class="card-title"><%=d.price%></h3>
+            <p class="card-text"><%=d.description%></p>    
+          </div>
+        </a>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
+<%=render "shared/footer"%>
